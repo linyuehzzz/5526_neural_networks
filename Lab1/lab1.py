@@ -1,3 +1,12 @@
+'''
+Lab 1
+This code implements a two-layer perceptron with
+the backpropagation algorithm to solve the parity problem.
+
+Yue Lin (lin.3326 at osu.edu)
+Created: 9/22/2020
+'''
+
 from random import seed, randrange, uniform, shuffle
 from math import exp
 import csv
@@ -107,7 +116,6 @@ n_inputs = 4  # Number of input neurons
 n_hidden = 4  # Number of hidden neurons
 n_outputs = 1 # Number of output neurons
 lr = 0.5
-alpha = 1
 
 # Read training data
 with open("lab1-train.csv", "r") as f:
@@ -124,4 +132,4 @@ net = init_net(n_inputs, n_hidden, n_outputs)
 # Train
 train(net, data, lr, n_outputs)
 for layer in net:
-	print(layer)
+  print(layer)
