@@ -1,18 +1,16 @@
+'''
+Lab 2
+This code implements a RBF network.
+
+Yue Lin (lin.3326 at osu.edu)
+Created: 10/3/2020
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-def kmeans(X, k):
-    """Performs k-means clustering for 1D input
-    
-    Arguments:
-        X {ndarray} -- A Mx1 array of inputs
-        k {int} -- Number of clusters
-    
-    Returns:
-        ndarray -- A kx1 array of final cluster centers
-    """
- 
+def kmeans(X, k): 
     # randomly select initial clusters from input data
     clusters = np.random.choice(np.squeeze(X), size=k)
     prevClusters = clusters.copy()
@@ -20,10 +18,6 @@ def kmeans(X, k):
     converged = False
  
     while not converged:
-        """
-        compute distances for each cluster center to each point 
-        where (distances[i, j] represents the distance between the ith point and jth cluster)
-        """
         distances = np.squeeze(np.abs(X[:, np.newaxis] - clusters[np.newaxis, :]))
  
         # find the cluster that's closest to each point
@@ -102,7 +96,6 @@ class RBFNet(object):
                 y_pred.append(F)
     
                 loss = (y[i] - F).flatten() ** 2
-                # print('Loss: {0:.2f}'.format(loss[0]))
     
                 # backward pass
                 error = -(y[i] - F).flatten()
