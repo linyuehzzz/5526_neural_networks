@@ -1,6 +1,6 @@
 '''
 Lab 2
-This code implements a RBF network.
+This code implements an RBF network.
 
 Yue Lin (lin.3326 at osu.edu)
 Created: 10/3/2020
